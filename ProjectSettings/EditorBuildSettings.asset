@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RunningGraph.unity
     guid: ca06a51b83d2e4d3d9671b5f6195bca3
+  - enabled: 1
+    path: Assets/Scenes/NumberOfSteps.unity
+    guid: 022c0c06bb518488480131648c00edc3
   m_configObjects: {}
