@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sample;
 
-public class SampleScene : MonoBehaviour
-{
+public class SampleScene : MonoBehaviour{
     public void OnClick(){
-        Debug.Log("ここでプラグインを使う");
+        Debug.Log("HelloPlugin.HelloWorld() = " + HelloPlugin.HelloWorld());
+
     }
 }
