@@ -544,6 +544,7 @@ GameObject:
   - component: {fileID: 288272184}
   - component: {fileID: 288272183}
   - component: {fileID: 288272182}
+  - component: {fileID: 288272186}
   m_Layer: 5
   m_Name: InputField (Legacy)
   m_TagString: Untagged
@@ -585,7 +586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptInputField: {fileID: 288272183}
-  apiExample: {fileID: 0}
+  apiExample: {fileID: 288272186}
 --- !u!114 &288272183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -692,6 +693,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288272180}
   m_CullTransparentMesh: 1
+--- !u!114 &288272186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288272180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: add33c2d9d39e457094a5ca4859c7689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &439750039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1696,7 +1709,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter text...
+  m_Text: Enter text...(Legacy)
 --- !u!222 &1797926381
 CanvasRenderer:
   m_ObjectHideFlags: 0

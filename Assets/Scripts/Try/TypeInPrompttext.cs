@@ -11,6 +11,7 @@ public class TypeInPrompttext : MonoBehaviour{
     // ユーザー入力をAPI通信スクリプトに渡す
     public void SetPromptText(){
         string promptText = promptInputField.text;
+        Debug.Log("promptText(SetPromptText): " + promptText);
         apiExample.SetPrompt(promptText);
     }
 }
