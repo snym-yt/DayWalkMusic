@@ -12,41 +12,44 @@ public class MusicGenAPI : MonoBehaviour{
 
     // Start is called before the first frame update
     void Start(){
-        //StartCoroutine(SendAPIRequest());
+
     }
 
     public void SetPrompt(string newPrompt){
         promptText = newPrompt;
+        StartCoroutine(SendAPIRequest());
         // コンソールに promptText の内容を出力
-        Debug.Log("Enter in promptText: " + promptText);
+        // Debug.Log("Enter in promptText: " + promptText);
     }
 
-    // IEnumerator SendAPIRequest(){
-    //     string modelVersion = "melody"; // 使用するモデルのバージョン
-    //     string requestData = "{\"version\": \"" + modelVersion + "\", \"input\": {\"model_version\": \"" + modelVersion + "\", \"prompt\": \"" + promptText + "\"}}";
+    // コルーチンの宣言
+    IEnumerator SendAPIRequest(){
+        string modelVersion = "melody"; // 使用するモデルのバージョン
+        string requestData = "{\"version\": \"" + modelVersion + "\", \"input\": {\"model_version\": \"" + modelVersion + "\", \"prompt\": \"" + promptText + "\"}}";
 
-    //     // コンソールに promptText の内容を出力
-    //     Debug.Log("Sending API request with promptText: " + promptText);
+        // コンソールに promptText の内容を出力
+        Debug.Log("Sending API request with promptText: " + promptText);
 
-    //     using (UnityWebRequest webRequest = new UnityWebRequest(apiUrl, "POST")){
-    //         byte[] jsonBytes = Encoding.UTF8.GetBytes(requestData);
-    //         webRequest.uploadHandler = new UploadHandlerRaw(jsonBytes);
-    //         webRequest.downloadHandler = new DownloadHandlerBuffer();
-    //         webRequest.SetRequestHeader("Content-Type", "application/json");
+        using (UnityWebRequest webRequest = new UnityWebRequest(apiUrl, "POST")){
+            byte[] jsonBytes = Encoding.UTF8.GetBytes(requestData);
+            webRequest.uploadHandler = new UploadHandlerRaw(jsonBytes);
+            webRequest.downloadHandler = new DownloadHandlerBuffer();
+            webRequest.SetRequestHeader("Content-Type", "application/json");
 
-    //         // Here's how you set the "Authorization" header with the token
-    //         webRequest.SetRequestHeader("Authorization", "Token " + apiToken);
+            // Here's how you set the "Authorization" header with the token
+            webRequest.SetRequestHeader("Authorization", "Token " + apiToken);
 
-    //         yield return webRequest.SendWebRequest();
+            // WebRequestの結果が返ってくるまで待機
+            yield return webRequest.SendWebRequest();
 
-    //         if (webRequest.result != UnityWebRequest.Result.Success){
-    //             Debug.LogError("API request error: " + webRequest.error);
-    //         }else{
-    //             string responseBody = webRequest.downloadHandler.text;
-    //             // responseBodyを処理してデータを取得
-    //             Debug.Log("API response: " + responseBody);
-    //         }
-    //     }
-    // }
+            if (webRequest.result != UnityWebRequest.Result.Success){
+                Debug.LogError("API request error: " + webRequest.error);
+            }else{
+                string responseBody = webRequest.downloadHandler.text;
+                // responseBodyを処理してデータを取得
+                Debug.Log("API response: " + responseBody);
+            }
+        }
+    }
 }
 
